@@ -1,0 +1,32 @@
+<div ng-controller='sessionController'>
+  <a href="#/dashboard">Home</a>
+  <a href="#/new">Add question</a>
+  <a href="#" ng-click='logout()'>Logout</a>
+  <br>
+  <br>
+  <h2>Hi {{sessionUser.name}}!</h2>
+  <p>Choose an answer for each question, then click Submit.</p>
+  <div ng-controller='gameController'>
+    <div ng-style='{"border":"1px solid black", "width":"300px","text-align":"left"}'>
+      <p>{{gameQuestions[0].question}}</p>
+      <input type="radio" name="{{gameQuestions[0]._id}}" ng-model='q0.answer' value="wrong1">{{gameQuestions[0].fakeOne}}<br>
+      <input type="radio" name="{{gameQuestions[0]._id}}" ng-model='q0.answer' value="correct">{{gameQuestions[0].answer}}<br>
+      <input type="radio" name="{{gameQuestions[0]._id}}" ng-model='q0.answer' value="wrong2">{{gameQuestions[0].fakeTwo}}<br>
+    </div>
+    <div ng-style='{"border":"1px solid black", "width":"300px","text-align":"left"}'>
+      <p>{{gameQuestions[1].question}}</p>
+      <input type="radio" name="{{gameQuestions[1]._id}}" ng-model='q1.answer' value="wrong2">{{gameQuestions[1].fakeTwo}}<br>
+      <input type="radio" name="{{gameQuestions[1]._id}}" ng-model='q1.answer' value="correct">{{gameQuestions[1].answer}}<br>
+      <input type="radio" name="{{gameQuestions[1]._id}}" ng-model='q1.answer' value="wrong1">{{gameQuestions[1].fakeOne}}<br>
+    </div>
+    <div ng-style='{"border":"1px solid black", "width":"300px","text-align":"left"}'>
+      <p>{{gameQuestions[2].question}}</p>
+      <input type="radio" name="{{gameQuestions[2]._id}}" ng-model='q2.answer' value="correct">{{gameQuestions[2].answer}}<br>
+      <input type="radio" name="{{gameQuestions[2]._id}}" ng-model='q2.answer' value="wrong2">{{gameQuestions[2].fakeTwo}}<br>
+      <input type="radio" name="{{gameQuestions[2]._id}}" ng-model='q2.answer' value="wrong1">{{gameQuestions[2].fakeOne}}<br>
+    </div>
+    <a href="#/dashboard"><button>Cancel</button></a>
+    <button ng-click='score()'>Submit</button>
+    <p>{{errMsg}}</p>
+  </div>
+</div>
